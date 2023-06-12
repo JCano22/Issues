@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+
+{% block title %}Issues{% endblock title %} 
+
+{% block content %}
+
+<div class="container">
+<h1>Issues</h1>
+<div class="IssueCont">
+{% for issue in issue_list %}
+    <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">{{ issue.summary }}</h4>
+        <h6 class="card-text">Priority: {{ issue.priority }}</h6>
+        {% if issue.updated_on %}
+        <h6 class="card-text">Updated on: {{ issue.updated_on }}</h6>
+        {% endif %}
+        <p class="card-text">{{ issue.body|truncatechars:302}}</p>
+        <p class="card-text">Assigned to: {{ issue.assignee }}</p>
+
+        <a href="{% url 'detail' issue.id %}" class="card-link">Continue reading...</a>
+        </div>
+    </div>
+    <br />
+
+{% endfor %}
+</div>
+
+</div>
+{% endblock content %}

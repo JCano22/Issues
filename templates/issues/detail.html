@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ issue.summary }}</h1>
+    <h4>For: {{ issue.assignee }}</h4>
+    <h5>By: {{ issue.reporter }}</h5>
+    <h6>Created on: {{ issue.created_on }}</h6>
+    <p>{{ issue.body }}</p>
+    {% if user.is_authenticated %}
+        {% if issue.reporter.username == user.username %}
+            <p class="updateDelete">
+                <a href="{% url 'edit' issue.id %}"">Update</a>
+                <a href="{% url 'delete'  issue.id %}">Delete</a>
+            </p>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock content %}

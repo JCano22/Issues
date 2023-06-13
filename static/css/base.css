@@ -10,16 +10,20 @@
 }
 html, body{
     height: 100%;
-    overflow: hidden;
+    
 }
 main{
-    background-color: black !important;
+    background-color: var(--darkest) !important;
     width: 100vw;
     height: 100vh;
     color: var(--lightest);
-    overflow-y: auto;
+   
 }
 
 .navbar{
     background: var(--dark) !important;
+}
+
+.aboutH1{
+    text-align: center;
 }

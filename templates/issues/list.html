@@ -6,8 +6,10 @@
 
 <div class="container">
 <h1>Issues</h1>
+<h3>Your are seeing all issues for team <span style="color: red;">{{ user.team }}</span>.</h3>
 <div class="IssueCont">
 {% for issue in issue_list %}
+    {% if issue.assignee.team == user.team %}
     <div class="card">
         <div class="card-body">
         <h4 class="card-title">{{ issue.summary }}</h4>
@@ -22,7 +24,7 @@
         </div>
     </div>
     <br />
-
+    {% endif %}
 {% endfor %}
 </div>
 

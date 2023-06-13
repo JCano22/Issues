@@ -8,11 +8,18 @@
     padding: 0;
     margin: 0;
 }
-main{
-    background-color: var(--darkest);
+html, body{
     height: 100%;
-    color: var(--lightest)
+    overflow: hidden;
 }
+main{
+    background-color: black !important;
+    width: 100vw;
+    height: 100vh;
+    color: var(--lightest);
+    overflow-y: auto;
+}
+
 .navbar{
     background: var(--dark) !important;
 }
